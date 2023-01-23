@@ -10,7 +10,7 @@ namespace ais1002 {
     class real_random_generator {
 
     public:
-        real_random_generator() : dis(0.0, 1.0) {}
+        real_random_generator(double min, double max) : dis(min, max) {}
 
         // Generates and returns new random number when invoked
         double generate() {

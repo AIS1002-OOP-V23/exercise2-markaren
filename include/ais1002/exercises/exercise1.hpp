@@ -6,36 +6,38 @@
 #include <unordered_map>
 #include <utility>
 #include <vector>
+#include <algorithm>
+#include <numeric>
 
 namespace ais1002 {
 
     double multiplyDoubles(double a, double b) {
-        // TODO return the result of a multiplied by b
-
-        return -1;// placeholder
+        return a * b;
     }
 
     int computeSum(const std::vector<int> &values) {
-        // TODO return the sum of all numbers in `values`
-
-        return -1;// placeholder
+        return std::accumulate(values.begin(), values.end(), 0);
     }
 
     int countValuesBelowThreshold(const std::vector<double> &values) {
-        // TODO return the number of elements in `values` that has a value < 50
-
-        return -1;// placeholder
+        return std::count_if(values.begin(), values.end(), [](double val){
+            return val < 50;
+        });
     }
 
     void capitalizeString(std::string &str) {
-        // TODO: Capitalize the string referenced by str. Note: str could be empty!
+        if (str.empty()) return;
+        str[0] = static_cast<char>(std::toupper(str[0]));
     }
 
     std::unordered_map<std::string, int> convert(const std::vector<std::pair<std::string, int>> &list) {
 
-        // TODO: Convert the list of pairs to a map
+        std::unordered_map<std::string, int> res;
+        for (auto& [str, val]: list) {
+            res[str] = val;
+        }
 
-        return {};// placeholder
+        return res;
     }
 
 }// namespace ais1002

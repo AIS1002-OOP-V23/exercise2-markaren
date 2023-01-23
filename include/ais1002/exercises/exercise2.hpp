@@ -7,9 +7,12 @@
 namespace ais1002 {
 
     std::vector<double> generateRandomNumbersInRange(int count, double min, double max) {
-        // TODO: return a random value in the range [min, max]
-        // Hint: Use and update the class real_random_generator with a constructor that allows customizing the range
-        return {};//placeholder
+        real_random_generator rng(min, max);
+        std::vector<double> res(count);
+        for (int i = 0; i < count; ++i) {
+            res[i] = rng.generate();
+        }
+        return res;
     }
 
 }// namespace ais1002
