@@ -20,14 +20,18 @@ namespace ais1002 {
     }
 
     int countValuesBelowThreshold(const std::vector<double> &values) {
-        return std::count_if(values.begin(), values.end(), [](double val){
+        auto count = std::count_if(values.begin(), values.end(), [](double val){
             return val < 50;
         });
+        return static_cast<int>(count);
     }
 
     void capitalizeString(std::string &str) {
         if (str.empty()) return;
         str[0] = static_cast<char>(std::toupper(str[0]));
+        for (int i = 1; i < str.size(); ++i) {
+            str[i] = static_cast<char>(std::tolower(str[i]));
+        }
     }
 
     std::unordered_map<std::string, int> convert(const std::vector<std::pair<std::string, int>> &list) {
